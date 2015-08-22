@@ -66,27 +66,6 @@ public class MovieRecommender {
         finally {
             writer.close();
         }
-        System.out.println("Product count: " + productID);
-        System.out.println("Review count: " + reviewCount);
-        System.out.println("User count: " + userID);
-        try {
-            test();
-        } catch (TasteException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void test() throws TasteException {
-        machineLearning();
-        List lista = getRecommendationsForUser("A141HP4LYPWMSR");
-        System.out.println(lista);
-    }
-
-    //=======
-    public int getTotalReviews(){
-        int totalReviews = reviewCount;
-
-        return totalReviews;
     }
 
     private static void processReview(String reviewArray[]){
@@ -131,7 +110,6 @@ public class MovieRecommender {
        for(int i = 0; i<recommendationsRaw.size();i++){
            GenericRecommendedItem temp = (GenericRecommendedItem) recommendationsRaw.get(i);
             Long itemID = temp.getItemID();
-            System.out.println(itemID);
             recommendations.add(products.get(itemID.toString()));
         }
         return recommendations;
